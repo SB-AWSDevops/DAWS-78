@@ -1,3 +1,3 @@
 #!/bin/bash
 
-Hey!! Welcome!!
+echo "Hey!! Welcome Buddy !!"
