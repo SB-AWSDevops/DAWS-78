@@ -1,1 +1,1 @@
-# DAWS-78
+This repo is for learning and practicing devops with AWS
