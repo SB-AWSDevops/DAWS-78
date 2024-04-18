@@ -1,1 +1,3 @@
-# Hey !! Hello World!!
+#!/bin/bash
+
+Hey!! Welcome!!
