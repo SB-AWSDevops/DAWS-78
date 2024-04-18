@@ -3,7 +3,7 @@
 num1=$1
 num2=$2
 
-if [ $num1 -gt $num2 ]
+if (( ($num1 -gt $num2 | bc -l) ));
 then
  echo "$num1 is greater than $num2"
 else
