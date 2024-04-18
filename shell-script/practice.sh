@@ -7,4 +7,5 @@ echo "current working directory : $PWD"
 echo "home directory of current user - $HOME"
 echo "host name: $HOSTNAME"
 echo "process id of the current shwll script - $$"
+sleep 60 &
 echo "process id of the last background comand - $!"
