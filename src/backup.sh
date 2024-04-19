@@ -8,14 +8,14 @@ read -p "Enter the dest directory you want to backup: " backup
 
 #Validations for the src directory to check any loose files are there or not, if yes, we will copy to backup directory
 
-if [ "$(ls -A $src)" ]
+if [ "$(ls -A .)" ]
  then
-   cp -r "$src/" "$backup/"
+   cp -r . "$backup/"
    if [ $? -eq 0 ]
      then
        echo "files copied to backup folder succesfully!!"
    fi
-elif [ ! -r $src ]
+elif [ ! -r . ]
  then
    echo "ERROR : You dont have read permissions for this directory"
 exit 6
