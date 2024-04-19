@@ -6,8 +6,13 @@ echo "Welcome to File Backup Script!!"
 read -p "Enter the directory you want to backup: " src_dir
 read -p "Enter the dest directory you want to backup: " dst_dir
 
-echo "Source directory: $src_dir"  # Print source directory for debugging
-echo "Destination directory: $dst_dir"  # Print destination directory for debugging
+# Get the absolute path of the source directory
+src_dir_absolute=$(realpath "$src_dir")
+# Get the absolute path of the destination directory
+dst_dir_absolute=$(realpath "$dst_dir")
+
+echo "Source directory: $src_dir_absolute"  # Print absolute source directory for debugging
+echo "Destination directory: $dst_dir_absolute"  # Print absolute destination directory for debugging
 
 #Validations for the src and dest directories whether exists or not
 
