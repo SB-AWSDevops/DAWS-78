@@ -8,9 +8,9 @@ read -p "Enter the dest directory you want to backup: " backup
 
 #Validations for the src directory to check any loose files are there or not, if yes, we will copy to backup directory
 
-if [ "$(ls -A .)" ]
+if [ "$(ls -A $src)" ]
  then
-   cp * "$backup/"
+   cp -r "$src/" "$backup/"
    if [ $? -eq 0 ]
      then
        echo "files copied to backup folder succesfully!!"
