@@ -27,3 +27,5 @@ for file in "$src_dir"/*; do
         fi
     fi
 done
+
+echo "backup completed successfully!!"
