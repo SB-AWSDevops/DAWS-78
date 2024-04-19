@@ -11,18 +11,7 @@ echo "Welcome to File Backup Script!!"
 
 #Validations for the src directory to check any loose files are there or not, if yes, we will copy to backup directory
 
-if [ "$(ls -A .)" ]
- then
-   cp -r . "$backup/"
-   if [ $? -eq 0 ]
-     then
-       echo "files copied to backup folder succesfully!!"
-   fi
-elif [ ! -r . ]
- then
-   echo "ERROR : You dont have read permissions for this directory"
-exit 6
-fi
+find "$src_dir" -maxdepth 1 -type f -exec cp -t "$backup_dir" {} \;
 
 if [ ! -d $backup ]
  then
