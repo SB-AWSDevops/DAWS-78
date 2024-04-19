@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Define variables
+src_dir=$(pwd)
+backup_dir="$src_dir/backup"
+
 #Prompt user for input
 
 echo "Welcome to File Backup Script!!"
-read -p "Enter the directory you want to backup: " src
-read -p "Enter the dest directory you want to backup: " backup
+
 
 #Validations for the src directory to check any loose files are there or not, if yes, we will copy to backup directory
 
