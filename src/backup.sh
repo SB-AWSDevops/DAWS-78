@@ -23,6 +23,15 @@ elif [ ! -w $sbackup_dir ]
 exit 6
 fi
 
-find "$src_dir" -maxdepth 1 -type f -exec cp -t "$backup_dir" {} \;
-echo "copied files to backup foler successfullyy!!"
+find "$src_dir" -maxdepth 1 -type f -exec bash -c '
+
+for file do
+  if cp "$file" "$backup_dir"
+   then
+    echo "Copied $(basename "$file") successfully!!"
+  fi
+done
+' bash {} +
+
+
 
