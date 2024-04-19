@@ -18,10 +18,12 @@ if [ ! -d "$backup_dir" ]; then
 fi
 
 # Copy only files to backup directory and print their names
-find "$src_dir" -maxdepth 1 -type f -exec bash -c '
-for file do
-    if cp "$file" "$backup_dir"; then
-        echo "Copied $(basename "$file") successfully"
+for file in "$src_dir"/*; do
+    if [ -f "$file" ]; then
+        if cp "$file" "$backup_dir"; then
+            echo "Copied $(basename "$file") successfully"
+        else
+            echo "Failed to copy $(basename "$file")"
+        fi
     fi
 done
-' bash {} +
