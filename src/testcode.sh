@@ -4,16 +4,20 @@
 src_dir=$(pwd)
 backup_dir="$src_dir/backup"
 
+# Debugging: Print the value of backup_dir
+echo "Backup directory: $backup_dir"
+
 # Check if backup directory exists, if not create it
 if [ ! -d "$backup_dir" ]; then
     mkdir "$backup_dir"
+    echo "Backup directory created."
 fi
 
-# Check if there are any files in the source directory
-if [ "$(ls -A "$src_dir")" ]; then
-    # Copy files to backup directory
-    cp "$src_dir"/* "$backup_dir"
-    echo "Files copied to backup directory."
-else
-    echo "No files found in the current directory."
-fi
+# Copy only files to backup directory and print their names
+find "$src_dir" -maxdepth 1 -type f -exec bash -c '
+for file do
+    if cp "$file" "$backup_dir"; then
+        echo "Copied $(basename "$file") successfully"
+    fi
+done
+' bash {} +
