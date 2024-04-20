@@ -2,18 +2,21 @@
 
 userid=$(id -u)
 
-if [ $userid -ne 0 ]
- then
-   echo "you need superuser access to install!!"
-   exit 4
+# validation for installation
+validate()
+{
+if [ $1 -ne 0 ]
+ then 
+   echo "$2 FAILURE..please check!!"
+ else
+   echo "$2 SUCCESS.."
 fi
+}
 
 dnf install mysql -y
 
-##to check installation is successful
+validate "$?" "Install.."
 
-if [ $? -ne 0 ]
- then 
-   echo "installtion - failure!!"
-   exit 5
-fi
+dnf install git -y
+
+validate "$?" "Install.."
