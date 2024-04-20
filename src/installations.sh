@@ -14,10 +14,10 @@ if [ $1 -ne 0 ]
 fi
 }
 
-dnf install mysql -y
+dnf install nginx -y
 
-validate "$?" "Install.."
+validate "$?" "NGINX" "Installation"
 
-dnf install git -y
+dnf install npm -y
 
-validate "$?" "Install.."
+validate "$?" "NPM" "Installation"
