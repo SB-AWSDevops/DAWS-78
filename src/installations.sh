@@ -7,7 +7,8 @@ validate()
 {
 if [ $1 -ne 0 ]
  then 
-   echo "$2 FAILURE..please check!!"
+   echo "$2 FAILURE..You need super user access..please check!!"
+   exit 6
  else
    echo "$2 SUCCESS.."
 fi
