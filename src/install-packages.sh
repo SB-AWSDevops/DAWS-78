@@ -26,12 +26,14 @@ if [ $userid -ne 0 ]
 fi
 
 #validation of installtation
+validate{
 if [ $1 -ne 0 ]
  then 
   echo -e "$2..$R FAILURE!! $N"
  else
   echo -e "$2..$G SUCCESS!! $N"
 fi
+}
 
 #install multiple packages through loop
 for i in $@
