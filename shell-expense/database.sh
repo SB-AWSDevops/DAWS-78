@@ -50,7 +50,7 @@ validate $? "enabling mysqld"
 systemctl start mysqld &>>$logfile
 validate $? "starting mysqld"
 
-mysql -h db.surisetty.online -uroot -p$dbpwd -e 'show databases;' &>>$LOGFILE
+mysql -h db.surisetty.online -uroot -p$dbpwd -e 'show databases;' &>>$logfile
 if [ $? -ne 0 ]
  then
     mysql_secure_installation --set-root-pass $dbpwd &>>$logfile
