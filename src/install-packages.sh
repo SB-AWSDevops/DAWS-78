@@ -41,7 +41,7 @@ for i in $@
  do
    echo -e "$bold package name - $i $N"
    dnf list installed $i &>>$logfile
-   if[ $? -ne 1 ]
+   if [ $? -ne 1 ]
      then
        echo -e "$i already installed - \e[33mSKIPPING\e[0m"
     else
