@@ -59,3 +59,4 @@ validate $? "starting mysqld"
 #    echo -e "db password already setup...$Y SKIPPING!!"
 # fi
 mysql_secure_installation --set-root-pass $dbpwd &>>$logfile
+validate $? "setting up db password"
