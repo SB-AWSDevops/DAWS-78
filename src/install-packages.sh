@@ -9,7 +9,7 @@
 
 userid=$(id -u)
 timestamp=$(date +%F..%H:%M:%S)
-scriptname=echo $0
+scriptname=$(echo $0)
 logfile=/tmp/$scriptname:::timestamp.log
 
 #color codes
