@@ -34,7 +34,7 @@ if [ $# -eq 0 ]
   exit 4
  fi
 
-#validation of installtation
+#validation of installation
 validate()
 {
 if [ $1 -ne 0 ]
