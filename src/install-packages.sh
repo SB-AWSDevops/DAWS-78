@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ##req - log redirections , and color codes mandatory
 
 # script for installing the required packages 
@@ -5,7 +7,7 @@
 # need sudo access, check whether its already installed or not ( dnf list installed <pack-name>), if already installed, 
 #print as skipping and exit, if not , then take a loop and install all the packages
 
-#!/bin/bash
+
 
 userid=$(id -u)
 timestamp=$(date +%F..%H:%M:%S)
