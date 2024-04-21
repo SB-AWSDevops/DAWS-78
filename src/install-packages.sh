@@ -41,7 +41,7 @@ fi
 #install multiple packages through loop
 for i in $@
  do
-   echo -e "$bold package name - $i $N"
+   echo -e "$Bold package name - $i $N"
    dnf list installed $i &>>$logfile
    if [ $? -ne 1 ]
      then
