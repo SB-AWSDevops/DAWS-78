@@ -14,7 +14,7 @@ if [ $1 -ne 0 ]
    exit 6
  else
    echo -e "$2 $3 \e[32mSUCCESS..\e[0m"
-   echo -e "\e[37m\e[46mTO SEE LOG FILES, GOTO /tmp folder\e[0m]"
+   echo -e "\e[1m\e[4mTO SEE LOG FILES, GOTO /tmp folder\e[0m]"
 fi
 }
 
