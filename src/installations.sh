@@ -10,17 +10,17 @@ validate()
 {
 if [ $1 -ne 0 ]
  then 
-   echo "$2 $3 FAILURE..You need super user access..please check!!" >&2
+   echo -e "$2 $3 \e[33mFAILURE..\e[44mYou need super user access..please check!!" >&2
    exit 6
  else
-   echo "$2 $3 SUCCESS.."
+   echo -e "$2 $3 \e[32mSUCCESS.."
 fi
 }
 
-dnf install nginx -y >> $logfile
+dnf install nginx -y &>> $logfile
 
 validate "$?" "NGINX" "Installation"
 
-dnf install npm -y >> $logfile
+dnf install npm -y &>> $logfile
 
 validate "$?" "NPM" "Installation"
