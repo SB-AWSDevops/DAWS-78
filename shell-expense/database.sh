@@ -8,10 +8,6 @@ timestamp=$(date +%F..%H:%M:%S)
 scriptname=$(echo $0)
 logfile=/tmp/$scriptname:::$timestamp.log
 
-#asking user for db password
-echo "Enter the db password: "
-read -s dbpwd #use pwd as - ExpenseApp@1
-
 
 #declaring color codes
 R="\e[31m"
@@ -27,6 +23,10 @@ if [ $userid -ne 0 ]
    echo -e "$Y you need super user access!! $N"
    exit 3
 fi
+
+#asking user for db password
+echo "Enter the db password: "
+read -s dbpwd #use pwd as - ExpenseApp@1
 
 #validation installation
 
