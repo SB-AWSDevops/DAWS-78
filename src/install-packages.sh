@@ -46,6 +46,6 @@ for i in $@
        echo -e "$i already installed - \e[33mSKIPPING\e[0m"
     else
     dnf install $i -y &>>$logfile
-    validate $? "Install $i"
+    validate "$?" "Install $i"
    fi
 done
