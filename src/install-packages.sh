@@ -28,7 +28,7 @@ if [ $userid -ne 0 ]
 fi
 
 #validate the input arguments
-if[ $# -eq 0 ]
+if [ $# -eq 0 ]
  then
   echo -e "$Y Please provide packages to install!! $N"
   exit 4
