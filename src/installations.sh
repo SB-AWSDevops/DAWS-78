@@ -10,7 +10,7 @@ validate()
 {
 if [ $1 -ne 0 ]
  then 
-   echo -e "$2 $3 \e[33mFAILURE..\e[44mYou need super user access..please check!!\e[0m" >&2
+   echo -e "$2 $3 \e[43m\e[31mFAILURE..\e[44mYou need super user access..please check!!\e[0m" >&2
    exit 6
  else
    echo -e "$2 $3 \e[32mSUCCESS..\e[0m"
