@@ -80,7 +80,7 @@ validate $? "enabling the service"
 dnf install mysql -y &>>$logfile
 validate $? "Installing MYSQL"
 
-mysql -h $dbhost -uroot -p{$dbpwd} < /app/schema/backend.sql &>>$logfile
+mysql -h $dbhost -uroot -p${dbpwd} < /app/schema/backend.sql &>>$logfile
 validate $? "Loading the schema to the dadtabase"
 
 systemctl restart backend
