@@ -72,7 +72,7 @@ validate $? "unzipping the backend code"
 npm install &>>$logfile
 validate $? "Installing NPM"
 
-cp home/ec2-user/shell-expense/backend.service /etc/systemd/system/backend.service &>>$logfile
+cp /home/ec2-user/DAWS-78/shell-expense/backend.service /etc/systemd/system/backend.service &>>$logfile
 validate $? "Setup SystemD Expense Backend Service"
 
 systemctl daemon-reload &>>$logfile
