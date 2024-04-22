@@ -57,7 +57,7 @@ validate $? "Extracting the frontend content"
 unzip /tmp/frontend.zip &>>$logfile
 validate $? "Unzipping the frontend content"
 
-cp /home/ec2-user/DAWS-78/shell-expense /etc/nginx/default.d/expense.conf &>>$logfile
+cp /home/ec2-user/DAWS-78/shell-expense/expense.conf /etc/nginx/default.d/expense.conf &>>$logfile
 validate $? "Creating and copying the Nginx Reverse Proxy Configuration" 
 
 systemctl restart nginx
