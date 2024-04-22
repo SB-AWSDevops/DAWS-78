@@ -7,7 +7,6 @@ userid=$(id -u)
 timestamp=$(date +%F..%H:%M:%S)
 scriptname=$(echo $0)
 logfile=/tmp/$scriptname:::$timestamp.log
-dbhost=$(db.surisetty.online)
 
 #declaring color codes
 R="\e[31m"
@@ -50,8 +49,14 @@ validate $? "enabling node js 20th version"
 dnf install nodejs -y &>>$logfile
 validate $? "Installing NodeJS"
 
-useradd expense &>>$logfile
-validate $? "adding USER - expense"
+id expense &>>$LOGFILE
+if [ $? -ne 0 ]
+then
+    useradd expense &>>$LOGFILE
+    VALIDATE $? "Creating expense user"
+else
+    echo -e "Expense user already created...$Y SKIPPING $N"
+fi
 
 mkdir /app &>>$logfile
 validate $? "app directory created"
@@ -80,7 +85,7 @@ validate $? "enabling the service"
 dnf install mysql -y &>>$logfile
 validate $? "Installing MYSQL"
 
-mysql -h $dbhost -uroot -p${dbpwd} < /app/schema/backend.sql &>>$logfile
+mysql -h db.surisetty.online -uroot -p${dbpwd} < /app/schema/backend.sql &>>$logfile
 validate $? "Loading the schema to the dadtabase"
 
 systemctl restart backend
