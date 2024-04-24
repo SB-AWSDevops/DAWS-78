@@ -1,6 +1,7 @@
 #!/bin/bash
 
-mkdir /tmp/logs
+set -e 
+
 src=/tmp/logs
 
 if [ -d $src ]
