@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir /tmp/logs
 src=/tmp/logs
 
 if [ -d $src ]
