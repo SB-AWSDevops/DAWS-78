@@ -5,7 +5,8 @@ course="devops"
 echo "before calling other script..course is - $course"
 echo "process id of current script is - $$"
 
-sudo ./other-script.sh
+chmod +x other-script.sh
+./other-script.sh
 
 echo "after calling other script..course is - $course"
 echo "process id of current script is - $$"
