@@ -19,4 +19,4 @@ fi
 #count the occurences and first most 5 used
 
 echo "Top 5 most used words in this txt file:"
-cat $1 | tr -s '[:space:]' '\n' | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn |head -n 5
+cat $1 | grep -v '^\s*$' "$1" | tr -s '[:space:]' '\n' | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -n 5
