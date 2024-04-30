@@ -26,9 +26,9 @@ fi
 timestamp=$(date +"%Y-%m-%d_%H:%M:%S")
 
 #create archive filename with timestamp
-archive_name="${$1##*/}_${timestamp}.tar.gz"
+archive_name="$(basename "$1")_${timestamp}.tar.gz"
 
 #logic for compressing src directory 
-tar -czf "$2/$archive_name" -C "$(dirname "$1")" "$(basename "$1")"
+tar -czf "$2/$archive_name" 
 
 echo "backup created : $2/$archive_name"
