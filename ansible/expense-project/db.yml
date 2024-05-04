@@ -40,6 +40,17 @@
     ansible.builtin.debug:
       msg: "output>>>>>> {{ mysql_connect_check }}"
 
+  # - name: setup root user and password
+  #   ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ mysql_root_password }}"
+  #   when: mysql_connect_check.failed is true
+
+
   - name: setup root user and password
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ mysql_root_password }}"
-    when: mysql_connect_check.failed is true
+    when: mysql_connect_check.failed
+    register: mysql_secure_result
+
+  - name: debug output for setup root user and password
+    ansible.builtin.debug:
+     msg: "{{ mysql_secure_result.stdout }}"
+    when: mysql_secure_result is defined and mysql_secure_result.changed
