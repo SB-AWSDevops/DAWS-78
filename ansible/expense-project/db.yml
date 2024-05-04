@@ -13,7 +13,7 @@
     ansible.builtin.dnf:
      name: mysqld
      state: latest
-     enable: yes
+     enabled: yes
 
 # check password already setup or not
   - name: check DB connection
