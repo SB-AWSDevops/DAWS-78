@@ -10,7 +10,7 @@
       state: latest
 
   - name: start and enable mysql server
-    ansible.builtin.dnf:
+    ansible.builtin.systemd:
      name: mysqld
      state: latest
      enabled: yes
