@@ -1,0 +1,29 @@
+- name: conditions
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    ansible_become_password: suri  # Replace 'your_sudo_password' with your actual sudo password
+
+  tasks:
+  - name: add user
+    ansible.builtin.command: id expense
+    register: USER
+    ignore_errors: true
+    
+  - name: print user info
+    ansible.builtin.debug:
+      msg: "User is : {{USER}}"
+
+  - name: create user
+    ansible.builtin.command: useradd expense
+    when: USER.rc != 0
+
+  - name: user info status
+    ansible.builtin.debug:
+      msg: "User Id is - {{ USER.stdout.split(' ')[0].split('=')[1] }}, User group is - {{ USER.stdout.split(' ')[1].split('=')[1] }}"
+    when: USER.rc == 0
+
+  - name: say hello
+    ansible.builtin.debug:
+      msg: "Hello!! Testing"

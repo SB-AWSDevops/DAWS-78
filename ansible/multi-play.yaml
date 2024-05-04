@@ -1,0 +1,20 @@
+- name: PLAY-1
+  hosts: localhost
+  connection: local
+  vars:
+    count: "PLAY-1"
+    task: "TASK-1"
+  tasks:
+  - name: PLAY-1 and TASK-1
+    ansible.builtin.debug:
+     msg: "Hello!! This is {{count}} and {{task}}"
+- name: PLAY-2
+  hosts: localhost
+  connection: local
+  vars:
+    count: "PLAY-2"
+    task: "TASK-1"
+  tasks:
+  - name: PLAY-2 and TASK-1
+    ansible.builtin.debug:
+      msg: "Hello!! This is {{count}} and {{task}}"

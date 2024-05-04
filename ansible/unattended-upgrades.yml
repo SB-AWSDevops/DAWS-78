@@ -1,0 +1,18 @@
+---
+- name: Update package lists
+  hosts: web
+  become: yes
+  tasks:
+    - name: Update package lists
+      ansible.builtin.dnf:
+        update_cache: yes
+
+- name: Search for unattended-upgrades package
+  hosts: web
+  become: yes
+  tasks:
+    - name: Search for unattended-upgrades package
+      ansible.builtin.dnf:
+        pkg: unattended-upgrades
+        cache_valid_time: 3600
+        state: search

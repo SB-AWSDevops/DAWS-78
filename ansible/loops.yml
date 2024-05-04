@@ -1,0 +1,12 @@
+- name: loops 
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+  - name: install packages
+    ansible.builtin.apt:
+      name: "{{item.name}}"
+      state: "{{item.state}}"
+    loop:
+    - {name: 'git' , state: 'absent'}
+    - {name: 'fail2ban' , state: 'latest'}

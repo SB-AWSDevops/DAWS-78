@@ -1,0 +1,44 @@
+- name: number validation
+  hosts: localhost
+  connection: local
+  vars_prompt:
+  - name: number
+    prompt: please enter a number
+    private: no
+  - name: lowercase
+    prompt: Please enter the word or any text
+    private: no
+  vars:
+   numbers: [1, 4, 6, 1, 7, 8, 9, 8, 9]
+  tasks:
+  - name: checking number is less than 100 or not
+    ansible.builtin.debug:
+      msg: "Given number {{number}} is greater than 100"
+    when: number | int > 100
+
+  - name: when number is greater or equals 100
+    ansible.builtin.debug:
+      msg: "Number {{number}} is less than 100 and bye {{person | default('Suri')}}"
+    when: number | int < 100
+
+
+  - name: convert lower to uppercase
+    ansible.builtin.debug:
+      msg: "given text is : {{lowercase}}, uppercase is : {{lowercase | upper}}"
+
+  - name: remove duplicates
+    ansible.builtin.debug:
+      msg: "removing duplicates: {{numbers | unique}} and min is : {{numbers | min}} and max is {{numbers | max}}"
+
+- name: convert dictionary to items
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: convert dict to item list
+    vars:
+      dict:
+        name: suri
+        age: 25
+        place: vizag
+    ansible.builtin.debug:
+      msg: "before convert: {{dict}} \n after convert: {{dict | dict2items}}"

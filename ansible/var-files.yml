@@ -1,0 +1,9 @@
+- name: reading variables from other files
+  hosts: localhost
+  connection: local
+  vars_files:
+  - var.yml
+  tasks:
+  - name: reading variables
+    ansible.builtin.debug:
+      msg: "Hi!! My name is {{name}} I am from {{place}}. My fav color is {{color}}"
