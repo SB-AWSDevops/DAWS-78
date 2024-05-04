@@ -18,6 +18,6 @@
 # check password already setup or not
   -name: check DB connection
     community.mysql.mysql_info:
-        login_user: root
-        login_password: ExpenseApp@1
-        login_host: "{{login_host}}"
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: "{{login_host}}"
