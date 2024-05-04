@@ -50,8 +50,8 @@
       register: mysql_secure_result
       ignore_errors: true
 
-  - name: debug output for setup root user and password
-     ansible.builtin.debug:
-      msg: "{{ mysql_secure_result.stdout }}"
-     when: mysql_secure_result is defined and mysql_secure_result.rc == 0
+    - name: debug output for setup root user and password
+      ansible.builtin.debug:
+       msg: "{{ mysql_secure_result.stdout }}"
+      when: mysql_secure_result is defined and mysql_secure_result.rc == 0
 
