@@ -3,3 +3,6 @@ db.surisetty.online
 
 [backend]
 backend.surisetty.online
+
+[hosts]
+surisetty.online
