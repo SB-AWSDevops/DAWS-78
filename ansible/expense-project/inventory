@@ -4,5 +4,5 @@ db.surisetty.online
 [backend]
 backend.surisetty.online
 
-[hosts]
+[frontend]
 surisetty.online
