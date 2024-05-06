@@ -2,7 +2,7 @@
   hosts: backend
   become: yes
   vars:
-    login_host: db.daws78s.online
+    login_host: db.surisetty.online
     login_password: ExpenseApp@1
 
   tasks:
