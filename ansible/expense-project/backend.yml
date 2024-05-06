@@ -36,19 +36,19 @@
 
   - name: unzip the code
     ansible.builtin.unarchive:
-    src: /tmp/backend.zip
-    dest: /app
-    remote_src: yes
+      src: /tmp/backend.zip
+      dest: /app
+      remote_src: yes
 
   - name: install npm dependencies
     ansible.builtin.command: npm install
     args:
-    chdir: /app
+      chdir: /app
 
   - name: Setup SystemD Expense Backend Service
     ansible.builtin.copy:
-    src: backend.service
-    dest: /etc/systemd/system/backend.service
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
 
   - name: install pythin mysql dependencies
     ansible.builtin.pip:
